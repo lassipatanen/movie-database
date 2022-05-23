@@ -18,7 +18,7 @@ internal class MovieRepository : IMovieRepository
 
     public IReadOnlyList<Movie> LoadAllMovies()
     {
-        var movies = _movieCollection.Find(_ => true).ToList();
+        var movies = _movieCollection.Find(_ => true).SortByDescending(m => m.Id).ToList();
         
         return movies;
     }

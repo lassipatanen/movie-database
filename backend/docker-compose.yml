@@ -17,4 +17,6 @@ services:
       - "5211:5211"
     environment:
       - MovieDatabaseSettings__ConnectionString=mongodb://db
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5211
   
