@@ -1,29 +1,53 @@
 <div class="card-content">
+
   <div class="section">
-    <h1 class="title">{{movie.name}}</h1>
-    <h2 class="subtitle">{{movie.year}}</h2>
+    <div class="container">
+      <h1 class="title">{{movie.name}}</h1>
+      <h2 class="subtitle">{{movie.year}}</h2>
+    </div>
   </div>
+
   <div class="section">
 
-    <span class="subtitle">Actors</span>
-    <p>{{getActors(movie.actors)}}</p>
+    <div class="columns is-multiline">
+      <div class="column is-half">
 
-    <span class="subtitle">Director</span>
-    <p>{{movie.director.firstName}} {{movie.director.lastName}}</p>
+        <div class="container mb-2">
+          <span class="subtitle mb-2">Actors</span>
+          <p>{{getActors(movie.actors)}}</p>
+        </div>
 
-    <span class="subtitle">Genres</span>
-    <div class="tags">
-      <span class="tag is-info" *ngFor="let genre of movie.genres">{{genre}}</span>
+        <div class="container mb-2">
+          <span class="subtitle mb-2">Director</span>
+          <p>{{movie.director.firstName}} {{movie.director.lastName}}</p>
+        </div>
+
+        <div class="container mb-2">
+          <span class="subtitle mb-2">Genres</span>
+          <div class="tags">
+            <span class="tag is-info" *ngFor="let genre of movie.genres">{{genre}}</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="column is-half">
+
+        <div class="container mb-2">
+          <span class="subtitle">Rating</span>
+          <p>{{movie.rating}}</p>
+        </div>
+
+        <div class="container mb-2">
+          <span class="subtitle mb-2">Age Limit</span>
+          <p>{{movie.ageLimit}}</p>
+        </div>
+
+      </div>
+
+      <div class="column"></div>
+      <p class="content">{{movie.synopsis}}</p>
     </div>
 
-    <span class="subtitle">Rating:</span>
-    <p>{{movie.rating}}</p>
-
-    <span class="subtitle">Age Limit:</span>
-    <p>{{movie.ageLimit}}</p>
-
   </div>
-  <div class="section">
-    <span>{{movie.synopsis}}</span>
-  </div>
+  
 </div>
