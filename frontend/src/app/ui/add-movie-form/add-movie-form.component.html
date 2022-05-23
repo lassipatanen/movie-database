@@ -1,0 +1,87 @@
+<div class="modal is-active">
+  <div class="modal-background" (click)="closeModal()"></div>
+  <div class="modal-content">
+
+    <form class="box has-background-white">
+
+      <div class="field">
+        <label class="label">Name</label>
+        <div class="control">
+          <input type="text" class="input" name="movieName" [(ngModel)]="movie.name">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Year</label>
+        <div class="control">
+          <input type="number" min="1888" max="2025" class="input" name="movieYear" [(ngModel)]="movie.year">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Genres</label>
+        <div class="field is-grouped is-grouped-multiline">
+          <div class="control" *ngFor="let genre of movie.genres">
+            <div class="tags has-addons">
+              <div class="tag is-success">{{genre}}</div>
+              <a class="tag is-delete" (click)="removeGenre(genre)"></a>
+            </div>
+          </div>
+        </div>
+        <div class="control">
+          <input #genreList type="text" class="input" (keyup.enter)="addGenre(genreList.value); genreList.value = ''">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Age Limit</label>
+        <app-age-limit-selector (ageLimit)="updateAgeLimit($event)"></app-age-limit-selector>
+      </div>
+
+      <div class="field">
+        <label class="label">Rating</label>
+        <span>Rating between 1 and 5</span>
+        <div class="control">
+          <input type="number" class="input" min="1" max="5" name="rating" [(ngModel)]="movie.rating">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Actors</label>
+        <span>Comma separated list of names
+    <div class="field is-grouped is-grouped-multiline">
+      <div class="control" *ngFor="let actor of movie.actors">
+        <div class="tags has-addons">
+          <div class="tag is-success">{{actor.firstName}} {{actor.lastName}}</div>
+          <a class="tag is-delete" (click)="removeActor(actor)"></a>
+        </div>
+      </div>
+    </div>
+    <div class="control">
+      <input #actorList type="text" class="input" (keyup.enter)="addActor(actorList.value); actorList.value = ''">
+    </div>
+    </span>
+      </div>
+
+      <div class="field">
+        <label class="label">Director</label>
+        <div class="control">
+          <input type="text" class="input" name="movieDirector" [(ngModel)]="director">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Synopsis</label>
+        <div class="control">
+          <textarea class="textarea" name="synopsis" [(ngModel)]="movie.synopsis"></textarea>
+        </div>
+      </div>
+
+      <a #saveMovieButton class="button is-primary" (click)="saveMovie(movie, $event)">Save</a>
+
+    </form>
+
+
+    <button class="modal-close is-large" aria-label="close" (click)="closeModal()"></button>
+  </div>
+</div>

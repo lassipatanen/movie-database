@@ -1,0 +1,29 @@
+<div class="card-content">
+  <div class="section">
+    <h1 class="title">{{movie.name}}</h1>
+    <h2 class="subtitle">{{movie.year}}</h2>
+  </div>
+  <div class="section">
+
+    <span class="subtitle">Actors</span>
+    <p>{{getActors(movie.actors)}}</p>
+
+    <span class="subtitle">Director</span>
+    <p>{{movie.director.firstName}} {{movie.director.lastName}}</p>
+
+    <span class="subtitle">Genres</span>
+    <div class="tags">
+      <span class="tag is-info" *ngFor="let genre of movie.genres">{{genre}}</span>
+    </div>
+
+    <span class="subtitle">Rating:</span>
+    <p>{{movie.rating}}</p>
+
+    <span class="subtitle">Age Limit:</span>
+    <p>{{movie.ageLimit}}</p>
+
+  </div>
+  <div class="section">
+    <span>{{movie.synopsis}}</span>
+  </div>
+</div>

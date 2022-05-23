@@ -1,0 +1,17 @@
+<div class="section">
+  <a (click)="toggleMoviePanel(true)" class="button is-primary">
+    <span class="icon">
+      <fa-icon [icon]="faCirclePlus" size="lg"></fa-icon>
+    </span>
+    <span>Add movie</span>
+  </a>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="card mb-3" *ngFor="let movie of movies" >
+      <app-movie-details [movie]="movie"></app-movie-details>
+    </div>
+  </div>
+</section>
+<app-add-movie-form *ngIf="isAddMoviePanelVisible" (modalStateEmitter)="toggleMoviePanel($event)"></app-add-movie-form>

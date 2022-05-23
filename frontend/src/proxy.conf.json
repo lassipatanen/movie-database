@@ -1,0 +1,6 @@
+{
+  "/movies": {
+    "target": "http://localhost:5211",
+    "secure": false
+  }
+}
