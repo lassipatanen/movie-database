@@ -1,15 +1,14 @@
-<div class="section">
-  <a (click)="toggleMoviePanel(true)" class="button is-primary">
+<section class="section">
+  <div class="container mb-4">
+    <a (click)="toggleMoviePanel(true)" class="button is-primary">
     <span class="icon">
       <fa-icon [icon]="faCirclePlus" size="lg"></fa-icon>
     </span>
-    <span>Add movie</span>
-  </a>
-</div>
-
-<section class="section">
+      <span>Add movie</span>
+    </a>
+  </div>
   <div class="container">
-    <div class="card mb-3" *ngFor="let movie of movies" >
+    <div class="card mb-3" *ngFor="let movie of movies">
       <app-movie-details [movie]="movie"></app-movie-details>
     </div>
   </div>
