@@ -1,4 +1,4 @@
-# movie-db
+# movie-database
 
 - MongoDB pitäisi laittaa pystyyn alla olevalla loitsulla käyttäen `terminal/cmd/jts`
 
