@@ -3,13 +3,18 @@
 services:
   db:
     image: mongo:latest
+    environment:
+      - MONGO_INITDB_DATABASE=mongoMovieDatabase
+    volumes:
+      - ./mongo/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    expose:
+      - "27017"
     ports:
       - "27017:27017"
-    expose:
-      - 27017
   api:
     build: .
     ports:
       - "5211:5211"
-    expose:
-      - 5211
+    environment:
+      - MovieDatabaseSettings__ConnectionString=mongodb://db
+  

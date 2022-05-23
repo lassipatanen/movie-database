@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using MovieDatabaseApi;
 using MovieDatabaseApi.Models;
@@ -48,4 +47,4 @@ app.MapDelete("/movies/{id:length(24)}",
     .WithName("DeleteMovie")
     .Produces(200);
 
-app.Run();
+app.Run("http://*:5211");
