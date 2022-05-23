@@ -13,6 +13,7 @@ import { AgeLimitSelectorComponent } from './ui/age-limit-selector/age-limit-sel
 import { FormsModule } from '@angular/forms';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
+import { SearchComponent } from './primary-navigation/search/search.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
     PrimaryNavigationComponent,
     MovieDetailsComponent,
     AddMovieFormComponent,
-    AgeLimitSelectorComponent
+    AgeLimitSelectorComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

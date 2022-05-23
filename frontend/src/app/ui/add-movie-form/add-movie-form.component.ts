@@ -71,11 +71,8 @@ export class AddMovieFormComponent implements OnInit {
     let directorNames = this.director.trim().split(' ');
     this.movie.director = new MoviePerson(directorNames[0], directorNames[1]);
 
-    this.movieService.save(movie).subscribe(() => {
-      this.closeModal();
-    }, (error) => {
-      console.log(error);
-    });
+    this.closeModal();
+    this.movieService.save(movie);
   }
 
   formatMoviePersonName(person: MoviePerson): string {

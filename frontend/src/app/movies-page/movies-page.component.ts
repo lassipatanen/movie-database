@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import {faCirclePlus} from '@fortawesome/free-solid-svg-icons';
 import {Movie} from "../models/movie";
 import {MoviesService} from "../services/movies.service";
-
 
 
 @Component({
@@ -22,21 +21,16 @@ export class MoviesPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadMovies();
+    this.movieService.getMovieList().subscribe((res) => {
+      this.movies = res;
+    });
+    this.movieService.getMovies();
   }
 
   toggleMoviePanel(state: boolean): void {
     this.isAddMoviePanelVisible = state;
-    if (!state) {
-      this.loadMovies();
-    }
-  }
-
-  loadMovies(): void {
-    this.movieService.getMovies().subscribe((movies) => {
-      if (movies !== undefined) {
-        this.movies = movies;
-      }
-    });
+    // if (!state) {
+    //   this.movieService.getMovies();
+    // }
   }
 }

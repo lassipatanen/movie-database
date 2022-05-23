@@ -27,4 +27,13 @@ export class MoviesHttpService {
   save(movie: Movie): Observable<any> {
     return this.http.post(this.apiBaseUrl + 'movies', movie);
   }
+
+  search(queryString: string): Observable<Movie[]> {
+    return this.http.get(this.apiBaseUrl + 'movies').pipe(map((response) => {
+      return response as Movie[];
+    }));
+    // return this.http.get(this.apiBaseUrl + '/movies?search=' + queryString).pipe(map((res) => {
+    //   return res as Movie[];
+    // }));
+  }
 }
